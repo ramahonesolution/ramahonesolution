@@ -64,17 +64,19 @@ export default function ProjectsPage() {
         key={p.title}
         className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg p-6 shadow-sm hover:shadow-lg transform hover:-translate-y-1 transition"
         >
-        {p.owner && (
-          <p className="text-xs text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wider">
-            {p.owner}
-          </p>
+        {p.owner ? (
+          <div className="mb-2">
+            <div className="text-indigo-600 dark:text-indigo-400 font-extrabold text-lg md:text-xl">{p.owner}</div>
+            <h3 className="text-base md:text-lg text-gray-800 dark:text-gray-100 font-medium mt-1 tracking-tight" style={{ fontFamily: "var(--font-geist-sans)" }}>{p.title}</h3>
+          </div>
+        ) : (
+          <h3
+            className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2 flex items-center justify-between tracking-tight"
+            style={{ fontFamily: "var(--font-geist-sans)" }}
+          >
+            <span className="mr-2">{p.title}</span>
+          </h3>
         )}
-        <h3
-          className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2 flex items-center justify-between tracking-tight"
-          style={{ fontFamily: "var(--font-geist-sans)" }}
-        >
-          <span className="mr-2">{p.title}</span>
-        </h3>
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
           {p.description}
         </p>
